@@ -30,7 +30,7 @@ class DiagramViewer extends React.Component {
         name: "HD_Cart_AV"
       }];
 
-    for (let i = 0; i < imageData.length; i++){
+    for (let i = 0; i < imageData.length; i++) {
       imageData[i].show = true;
       imageData[i].id = i;
     }
@@ -42,31 +42,34 @@ class DiagramViewer extends React.Component {
   toggleLayer(id) {
     let newLayers = this.state.layers;
     newLayers[id].show = !this.state.layers[id].show;
-    this.setState({layers: newLayers});
+    this.setState({ layers: newLayers });
   }
 
   render() {
     return (
       <div id="container">
         <div id="layer-selector">
+          <h4>Layers</h4>
           <ul>
             {this.state.layers.map((layer) =>
               <li key={layer.id}>
-                <button onClick={() => this.toggleLayer(layer.id)}>Toggle {layer.name}</button>
+                <button onClick={() => this.toggleLayer(layer.id)}>
+                  {layer.name}
+                  &nbsp;
+                  {layer.show ? "☑" : "☐"}
+                  </button>
               </li>
             )}
           </ul>
         </div>
         <div id="main-diagram-view">
-          {this.state.layers.map((layer) =>
-            <div key={layer.id} className="layer-contianer">
-              {layer.show &&
-                <img
-                  className="layer"
-                  src={layer.img}></img>
-              }
-            </div>
-          )}
+          {this.state.layers.map((layer) => {
+            return layer.show &&
+              <img
+                key={layer.id}
+                className="layer"
+                src={layer.img}></img>
+          })}
         </div>
       </div>
     )
