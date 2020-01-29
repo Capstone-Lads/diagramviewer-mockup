@@ -1,0 +1,28 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+#layer-selector {
+  width: 25%;
+  display: inline-block;
+}
+
+#main-diagram-view {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+}
+
+.layer {
+  width: 100%;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
